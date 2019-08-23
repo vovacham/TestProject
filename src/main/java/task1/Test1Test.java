@@ -20,15 +20,15 @@ public class Test1Test {
         int[] array;
         int[] arraySort;
 
-        int[] array1  = {1,1,1,1,1,1,1,1,1,1};
+        int[] array1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         int[] array1Sort = array1;
         Arrays.sort(array1Sort);
 
-        int[] array2 = {1,2,3,4,5,6,7,8,9};
+        int[] array2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] array2Sort = array2;
         Arrays.sort(array2Sort);
 
-        int[] array3 = {7,7,7,5,5,5,7,7,7};
+        int[] array3 = {7, 7, 7, 5, 5, 5, 7, 7, 7};
         int[] array3Sort = array3;
         Arrays.sort(array3Sort);
 
@@ -38,9 +38,9 @@ public class Test1Test {
 
 
         for (int i = 0; i < 100; i++) {
-            array = newArray(20,100);
+            array = newArray(20, 100);
             arraySort = array;
-            Test1.sort(array, 0, array.length-1);
+            Test1.sort(array, 0, array.length - 1);
             Assert.assertEquals(array, arraySort);
         }
     }
