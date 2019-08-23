@@ -5,5 +5,4 @@
 *.ear
 .classpath
 .project
-*.class
 .settings
