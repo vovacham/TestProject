@@ -10,7 +10,7 @@ public class Test1Test {
     public int[] newArray(int num, int max) {  //num - кол-во элементов массива, max - максимальный элемент
         int[] array = new int[num];
         for (int i = 0; i < num; i++) {
-            array[i] = (int) Math.random() * max;
+            array[i] = (int) (Math.random() * max);
         }
         return array;
     }
@@ -40,6 +40,7 @@ public class Test1Test {
         for (int i = 0; i < 100; i++) {
             array = newArray(20, 100);
             arraySort = array;
+            Arrays.sort(arraySort);
             Test1.sort(array, 0, array.length - 1);
             Assert.assertEquals(array, arraySort);
         }
