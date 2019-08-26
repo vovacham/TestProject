@@ -13,8 +13,9 @@ public class Test1 {
     } */
 
     public static int[] sortArray(int[] array) {
-        sort(array, 0, array.length-1);
-        return array;
+        int[] result = array.clone();
+        sort(result, 0, array.length-1);
+        return result;
     }
     
 
