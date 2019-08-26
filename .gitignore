@@ -3,6 +3,7 @@ bin/*
 classes/*
 .settings/*
 target/*
+target
 
 *.war
 *.jar
@@ -10,4 +11,5 @@ target/*
 .classpath
 .project
 .settings
+.gitignore
 
