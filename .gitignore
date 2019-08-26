@@ -1,4 +1,8 @@
 .idea/*
+bin/*
+classes/*
+.settings/*
+target/*
 
 *.war
 *.jar
@@ -6,3 +10,4 @@
 .classpath
 .project
 .settings
+
