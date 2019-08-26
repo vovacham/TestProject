@@ -32,9 +32,9 @@ public class Test1Test {
         //
         // When
         //
-            int [] test1 = Test1.sortArray(array1);
-            int [] test2 = Test1.sortArray(array2);
-            int [] test3 = Test1.sortArray(array3);
+            int[] test1 = Test1.sortArray(array1);
+            int[] test2 = Test1.sortArray(array2);
+            int[] test3 = Test1.sortArray(array3);
         //
         // Then
         //
