@@ -3,16 +3,22 @@ package task1;
 import java.util.Arrays;
 
 public class Test1 {
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         int[] array = {5, 3, 6, 8, 7, 4, 1, 25, 6, 9, 8, 5, 6, 5, 4, 9, 8, 7, 9, 5, 4, 6};
         System.out.println(Arrays.toString(array));
 
         sort(array, 0, array.length - 1);
 
         System.out.println(Arrays.toString(array));
-    }
+    } */
 
-    public static void sort(int[] array, int begin, int end) {
+    public static int[] sortArray(int[] array) {
+        sort(array, 0, array.length-1);
+        return array;
+    }
+    
+
+    private static void sort(int[] array, int begin, int end) {
         if (array.length == 0 || begin >= end) return;
 
         int i = begin;
@@ -40,6 +46,5 @@ public class Test1 {
 
         if (end > opora + 1)
             sort(array, opora + 1, end);
-
     }
 }
