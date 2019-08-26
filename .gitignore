@@ -1,15 +1,18 @@
 .idea/*
+.settings
 bin
-/classes/*
-.settings/*
-target/*
+classes
+target
 target
 
+.classpath
+.gitignore
+.project
+Test.iml
 *.war
 *.jar
 *.ear
-.classpath
-.project
-.settings
-.gitignore
+
+
+
 
