@@ -26,19 +26,9 @@ public class Test1Test {
         //
         // When
         //
-            int[] array1Sort = new int[array1.length];
-            int[] array2Sort = new int[array2.length];
-            int[] array3Sort = new int[array3.length];
-
-            for (int i = 0; i < array1.length; i++) {
-                array1Sort[i] = array1[i];
-            }
-            for (int i = 0; i < array2.length; i++) {
-                array2Sort[i] = array2[i];
-            }
-            for (int i = 0; i < array3.length; i++) {
-                array3Sort[i] = array3[i];
-            }
+            int[] array1Sort = array1.clone();
+            int[] array2Sort = array2.clone();
+            int[] array3Sort = array3.clone();
 
             Arrays.sort(array1Sort);
             Arrays.sort(array2Sort);
@@ -52,10 +42,8 @@ public class Test1Test {
 
             for (int i = 0; i < 100; i++) {
                 int[] array = newArray(20, 100);
-                int[] arraySort = new int[20];
-                for (int j = 0; j < arraySort.length; j++) {
-                    arraySort[j] = array[j];
-                }
+                int[] arraySort = array.clone();
+
                 Arrays.sort(arraySort);
                 Test1.sortArray(array);
                 Assert.assertArrayEquals(array, arraySort);
