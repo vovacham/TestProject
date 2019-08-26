@@ -1,5 +1,11 @@
 .idea/*
+.settings
+bin
+classes
+target
 
+.gitignore
+Test.iml
 *.war
 *.jar
 *.ear
