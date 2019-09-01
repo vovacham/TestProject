@@ -5,9 +5,7 @@ classes
 target
 
 Test.iml
-*.war
-*.jar
-*.ear
 .classpath
 .project
 *.class
+
