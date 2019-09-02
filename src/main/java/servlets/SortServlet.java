@@ -1,15 +1,17 @@
 package servlets;
 
-import task1.Test1;
+import task1.Services;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 
+
+@WebServlet(urlPatterns = {"/SortServlet"})
 public class SortServlet extends HttpServlet {
 
     @Override
@@ -32,29 +34,22 @@ public class SortServlet extends HttpServlet {
                 }
 
                 req.setAttribute("message", "Массив: " + mass);
-                req.setAttribute("sortArray", "Отсортированный массив: " + arrayToString(Test1.sortArray(arrayInt)));
+                req.setAttribute("sortArray", "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt)));
                 doGet(req, resp);
             } catch (Exception e) {
                 req.setAttribute("message", "Некорректный ввод данных, повторите ввод");
                 req.setAttribute("sortArray", mass);
-                doGet(req, resp);
+                req.getRequestDispatcher("index.jsp").forward(req, resp);
             }
         }
 
         if (action.equals("random")) {
-            int[] arrayInt = Test1.newArray(20, 100);
+            int[] arrayInt = Services.newArray(20, 100);
             int[] arraySort = arrayInt.clone();
 
-            req.setAttribute("message", "Случайный массив: " + arrayToString(arrayInt));
-            req.setAttribute("sortArray", "Отсортированный массив: " + arrayToString(Test1.sortArray(arraySort)));
-            doGet(req, resp);
+            req.setAttribute("message", "Случайный массив: " + Services.arrayToString(arrayInt));
+            req.setAttribute("sortArray", "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arraySort)));
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
     }
-
-    private static String arrayToString(int[] array) {
-        String s = Arrays.toString(array);
-        String result = s.substring(1, s.length() - 1).replaceAll(",", "");
-        return result;
-    }
-
 }

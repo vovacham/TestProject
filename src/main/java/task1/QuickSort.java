@@ -1,23 +1,8 @@
 package task1;
 
-public class Test1 {
+public class QuickSort {
 
-    public static int[] newArray(int num, int max) {
-        int[] array = new int[num];
-        for (int i = 0; i < num; i++) {
-            array[i] = (int) (Math.random() * max);
-        }
-        return array;
-    }
-
-    public static int[] sortArray(int[] array) {
-        int[] result = array.clone();
-        sort(result, 0, array.length - 1);
-        return result;
-    }
-
-
-    private static void sort(int[] array, int begin, int end) {
+    public static void sort(int[] array, int begin, int end) {
         if (array.length == 0 || begin >= end) return;
 
         int i = begin;
