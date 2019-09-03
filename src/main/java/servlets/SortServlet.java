@@ -35,7 +35,7 @@ public class SortServlet extends HttpServlet {
 
                 req.setAttribute("message", "Массив: " + mass);
                 req.setAttribute("sortArray", "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt)));
-                doGet(req, resp);
+                req.getRequestDispatcher("index.jsp").forward(req, resp);
             } catch (Exception e) {
                 req.setAttribute("message", "Некорректный ввод данных, повторите ввод");
                 req.setAttribute("sortArray", mass);
