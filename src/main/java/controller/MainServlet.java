@@ -31,23 +31,22 @@ public class MainServlet extends HttpServlet {
                     arrayInt[i] = Integer.parseInt(arrayStr[i]);
                 }
 
-                req.setAttribute("message", "Массив: " + mass);
-                req.setAttribute("sortArray", "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt)));
-                req.getRequestDispatcher("/view/sort.jsp").forward(req, resp);
+                Services.messageString = "Массив: " + mass;
+                Services.sortArrayString = "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt));
+                resp.sendRedirect(req.getContextPath() + "/Sort");
             } catch (Exception e) {
-                req.setAttribute("message", "Некорректный ввод данных, повторите ввод");
-                req.setAttribute("sortArray", mass);
-                req.getRequestDispatcher("/view/sort.jsp").forward(req, resp);
+                Services.messageString = "Некорректный ввод данных, повторите ввод";
+                Services.sortArrayString = "Введенные данные: " + mass;
+                resp.sendRedirect(req.getContextPath() + "/Sort");
             }
         }
 
         if (action.equals("random")) {
             int[] arrayInt = Services.newArray(20, 100);
-            int[] arraySort = arrayInt.clone();
 
-            req.setAttribute("message", "Случайный массив: " + Services.arrayToString(arrayInt));
-            req.setAttribute("sortArray", "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arraySort)));
-            req.getRequestDispatcher("/view/sort.jsp").forward(req, resp);
+            Services.messageString = "Случайный массив: " + Services.arrayToString(arrayInt);
+            Services.sortArrayString = "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt));
+            resp.sendRedirect(req.getContextPath() + "/Sort");
         }
     }
 }

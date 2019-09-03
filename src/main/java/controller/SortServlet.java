@@ -2,7 +2,6 @@ package controller;
 
 import model.Services;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +12,8 @@ public class SortServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getParameter("action");
+        req.setAttribute("message", Services.messageString);
+        req.setAttribute("sortArray", Services.sortArrayString);
+        req.getRequestDispatcher("/view/sort.jsp").forward(req, resp);
     }
 }

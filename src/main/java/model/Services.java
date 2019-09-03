@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Services {
 
+    public static String messageString;
+    public static String sortArrayString;
+
     public static int[] newArray(int num, int max) {
         int[] array = new int[num];
         for (int i = 0; i < num; i++) {
