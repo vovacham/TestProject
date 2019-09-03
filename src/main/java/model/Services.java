@@ -1,4 +1,4 @@
-package task1;
+package model;
 
 import java.util.Arrays;
 

@@ -9,4 +9,6 @@ Test.iml
 .project
 *.class
 .gitattributes
+*.rar
+
 

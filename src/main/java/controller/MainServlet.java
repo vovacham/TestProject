@@ -1,18 +1,16 @@
-package servlets;
+package controller;
 
-import task1.Services;
+import model.Services;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns = {"/SortServlet"})
-public class SortServlet extends HttpServlet {
+public class MainServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,11 +33,11 @@ public class SortServlet extends HttpServlet {
 
                 req.setAttribute("message", "Массив: " + mass);
                 req.setAttribute("sortArray", "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt)));
-                req.getRequestDispatcher("index.jsp").forward(req, resp);
+                req.getRequestDispatcher("/view/sort.jsp").forward(req, resp);
             } catch (Exception e) {
                 req.setAttribute("message", "Некорректный ввод данных, повторите ввод");
                 req.setAttribute("sortArray", mass);
-                req.getRequestDispatcher("index.jsp").forward(req, resp);
+                req.getRequestDispatcher("/view/sort.jsp").forward(req, resp);
             }
         }
 
@@ -49,7 +47,7 @@ public class SortServlet extends HttpServlet {
 
             req.setAttribute("message", "Случайный массив: " + Services.arrayToString(arrayInt));
             req.setAttribute("sortArray", "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arraySort)));
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/sort.jsp").forward(req, resp);
         }
     }
 }
