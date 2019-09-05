@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Результат сортировки</title>
-    <link rel="stylesheet" href="styles/w3.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/w3.css">
 </head>
 <body>
 

@@ -12,7 +12,7 @@
 
     <servlet-mapping>
         <servlet-name>main</servlet-name>
-        <url-pattern>/Main</url-pattern>
+        <url-pattern></url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -23,6 +23,16 @@
     <servlet-mapping>
         <servlet-name>sort</servlet-name>
         <url-pattern>/Sort</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>result</servlet-name>
+        <servlet-class>controller.ResultServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>result</servlet-name>
+        <url-pattern>/Result</url-pattern>
     </servlet-mapping>
 
 </web-app>

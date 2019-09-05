@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Сортировка массива</title>
-    <link rel="stylesheet" href="styles/w3.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/w3.css" type="text/css">
 </head>
 
 
 <body>
-<form action="${pageContext.request.contextPath}/Main" method="post" class="w3-selection w3-light-grey w3-padding">
+<form action="${pageContext.request.contextPath}/Sort" method="post" class="w3-selection w3-light-grey w3-padding">
     <h2>Введите элементы массива через пробел</h2>
     <input type="text" name="mass" class="w3-input w3-animate-input w3-border w3-round-large"
            style="width: 30%"><br/>

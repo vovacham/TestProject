@@ -51,7 +51,7 @@ public class QuickSortTest {
     public void sortTest4() {
         for (int i = 0; i < 100; i++) {
             //Given
-            int[] array = Services.newArray(20, 100);
+            int[] array = Services.newRandomArray(20, 100);
             int[] arraySort = array.clone();
             Arrays.sort(arraySort);
             //When
