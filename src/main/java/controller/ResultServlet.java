@@ -1,6 +1,6 @@
 package controller;
 
-import model.Services;
+import model.BDOperations;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,8 +14,7 @@ public class ResultServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
 
-        req.setAttribute("message", Services.getValueFromMapId(id)[0]);
-        req.setAttribute("sortArray", Services.getValueFromMapId(id)[1]);
+        req.setAttribute("Object", BDOperations.getFromBase(id));
         req.getRequestDispatcher("/view/result.jsp").forward(req, resp);
     }
 }

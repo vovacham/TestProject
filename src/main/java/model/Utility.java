@@ -1,27 +1,11 @@
 package model;
 
 import java.util.Arrays;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
-public class Services {
+public class Utility {
 
-    /** Хранилище данных */
-    private static Map<Integer, String[]> mapId = new ConcurrentHashMap<>();
-
-    /**
-     * Возврат значения элемента из mapId
-     */
-    public static String[] getValueFromMapId(int id) {
-        return mapId.get(id);
-    }
-
-    /**
-     * Добавление элемента в mapId
-     */
-    public static void addMapId(Integer id, String[] array) {
-        mapId.put(id, array);
-    }
+    /** Идентификатор запроса */
+    private static int id;
 
     /**
      * Генерация случайного массива
@@ -50,5 +34,19 @@ public class Services {
         String s = Arrays.toString(array);
         String result = s.substring(1, s.length() - 1); //.replaceAll(",", "");
         return result;
+    }
+
+    /**
+     * Геттер идентификатора
+     */
+    public static int getId() {
+        return id;
+    }
+
+    /**
+     * Инкремент идентификатора
+     */
+    public static void incrementId() {
+        Utility.id++;
     }
 }

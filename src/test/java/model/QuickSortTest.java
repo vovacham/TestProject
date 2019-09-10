@@ -15,7 +15,7 @@ public class QuickSortTest {
         int[] array1Sort = array1.clone();
         Arrays.sort(array1Sort);
         // When
-        int[] test1 = Services.sortArray(array1);
+        int[] test1 = Utility.sortArray(array1);
         // Then
         Assert.assertArrayEquals(test1, array1Sort);
     }
@@ -28,7 +28,7 @@ public class QuickSortTest {
         int[] array2Sort = array2.clone();
         Arrays.sort(array2Sort);
         // When
-        int[] test2 = Services.sortArray(array2);
+        int[] test2 = Utility.sortArray(array2);
         // Then
         Assert.assertArrayEquals(test2, array2Sort);
     }
@@ -41,7 +41,7 @@ public class QuickSortTest {
         int[] array3Sort = array3.clone();
         Arrays.sort(array3Sort);
         // When
-        int[] test3 = Services.sortArray(array3);
+        int[] test3 = Utility.sortArray(array3);
         // Then
         Assert.assertArrayEquals(test3, array3Sort);
     }
@@ -51,11 +51,11 @@ public class QuickSortTest {
     public void sortTest4() {
         for (int i = 0; i < 100; i++) {
             //Given
-            int[] array = Services.newRandomArray(20, 100);
+            int[] array = Utility.newRandomArray(20, 100);
             int[] arraySort = array.clone();
             Arrays.sort(arraySort);
             //When
-            int[] test = Services.sortArray(array);
+            int[] test = Utility.sortArray(array);
             //Then
             Assert.assertArrayEquals(test, arraySort);
         }

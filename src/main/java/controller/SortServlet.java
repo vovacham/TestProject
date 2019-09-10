@@ -1,6 +1,7 @@
 package controller;
 
-import model.Services;
+import model.BDOperations;
+import model.Utility;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 
 public class SortServlet extends HttpServlet {
-    private static int id;
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -20,9 +21,8 @@ public class SortServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String action = req.getParameter("action");
-        id++;
 
         if (action.equals("sort")) {
             String mass = req.getParameter("mass").trim();
@@ -33,21 +33,24 @@ public class SortServlet extends HttpServlet {
                     arrayInt[i] = Integer.parseInt(arrayStr[i]);
                 }
 
-                String[] strArray = {"Массив: " + mass.replaceAll(" ", ", "), "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt))};
-                Services.addMapId(id, strArray);
-                resp.sendRedirect(req.getContextPath() + "/Result?id=" + id);
+                Utility.incrementId();
+                BDOperations.addToBase(Utility.getId(), "sort", mass.replaceAll(" ", ", "),
+                        Utility.arrayToString(Utility.sortArray(arrayInt)));
+                resp.sendRedirect(req.getContextPath() + "/Result?id=" + Utility.getId());
             } catch (Exception e) {
-                String[] strArray = {"Некорректный ввод данных, повторите ввод", "Введенные данные: " + mass};
-                Services.addMapId(id, strArray);
-                resp.sendRedirect(req.getContextPath() + "/Result?id=" + id);
+                req.setAttribute("error", "NumberFormatException");
+                req.setAttribute("mass", mass);
+                req.getRequestDispatcher("/view/error.jsp").forward(req, resp);
             }
         }
 
         if (action.equals("random")) {
-            int[] arrayInt = Services.newRandomArray(20, 100);
-            String[] strArray = {"Случайный массив: " + Services.arrayToString(arrayInt), "Отсортированный массив: " + Services.arrayToString(Services.sortArray(arrayInt))};
-            Services.addMapId(id, strArray);
-            resp.sendRedirect(req.getContextPath() + "/Result?id=" + id);
+            int[] arrayInt = Utility.newRandomArray(20, 100);
+
+            Utility.incrementId();
+            BDOperations.addToBase(Utility.getId(), "random", Utility.arrayToString(arrayInt),
+                    Utility.arrayToString(Utility.sortArray(arrayInt)));
+            resp.sendRedirect(req.getContextPath() + "/Result?id=" + Utility.getId());
         }
     }
 }
