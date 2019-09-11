@@ -1,3 +1,4 @@
+<%@ page import="model.TabEntity" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,21 +12,19 @@
 <form class="w3-selection w3-light-grey w3-padding">
     <h2>Результат сортировки</h2>
     <%
-        if (request.getAttribute("Object") != null) {
-            String[] array = (String[]) request.getAttribute("Object");
+        if (request.getAttribute("TabEntity") != null) {
+            TabEntity tabEntity = (TabEntity) request.getAttribute("TabEntity");
 
-            switch (array[0]) {
-                case ("random"):
-                    out.print("<div class=\"w3-container\" <p><font size=4>" + "Случайный массив: " + array[1] + "</font></p>\n" + "</div>");
-                    out.print("<div class=\"w3-container\" <p><font size=4>" + "Отсортированный массив: " + array[2] + "</font></p>\n" + "</div>");
-                    break;
-                case ("sort"):
-                    out.print("<div class=\"w3-container\" <p><font size=4>" + "Массив: " + array[1] + "</font></p>\n" + "</div>");
-                    out.print("<div class=\"w3-container\" <p><font size=4>" + "Отсортированный массив: " + array[2] + "</font></p>\n" + "</div>");
-                    break;
+            if (tabEntity.getMesType().equals("random")) {
+                out.print("<div class=\"w3-container\" <p><font size=4>" + "Случайный массив: " + tabEntity.getMes1() + "</font></p>\n" + "</div>");
+                out.print("<div class=\"w3-container\" <p><font size=4>" + "Отсортированный массив: " + tabEntity.getMes2() + "</font></p>\n" + "</div>");
+            }
+
+            if (tabEntity.getMesType().equals("sort")) {
+                out.print("<div class=\"w3-container\" <p><font size=4>" + "Массив: " + tabEntity.getMes1() + "</font></p>\n" + "</div>");
+                out.print("<div class=\"w3-container\" <p><font size=4>" + "Отсортированный массив: " + tabEntity.getMes2() + "</font></p>\n" + "</div>");
             }
         }
-
     %>
 </form>
 

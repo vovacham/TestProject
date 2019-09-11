@@ -21,14 +21,11 @@
         if (request.getAttribute("error") != null) {
             String err = (String) request.getAttribute("error");
 
-            switch (err) {
-                case ("NumberFormatException"):
-                    out.print("<div class=\"w3-container\" <p><font size=4>" + "Некорректный ввод данных, повторите ввод" + "</font></p>\n" + "</div>");
-                    out.print("<div class=\"w3-container\" <p><font size=4>" + "Введенные данные: " + request.getAttribute("mass") + "</font></p>\n" + "</div>");
-                    break;
+            if (err.equals("NumberFormatException")) {
+                out.print("<div class=\"w3-container\" <p><font size=4>" + "Некорректный ввод данных, повторите ввод" + "</font></p>\n" + "</div>");
+                out.print("<div class=\"w3-container\" <p><font size=4>" + "Введенные данные: " + request.getAttribute("mass") + "</font></p>\n" + "</div>");
             }
         }
-
     %>
 </form>
 

@@ -4,9 +4,6 @@ import java.util.Arrays;
 
 public class Utility {
 
-    /** Идентификатор запроса */
-    private static int id;
-
     /**
      * Генерация случайного массива
      */
@@ -34,19 +31,5 @@ public class Utility {
         String s = Arrays.toString(array);
         String result = s.substring(1, s.length() - 1); //.replaceAll(",", "");
         return result;
-    }
-
-    /**
-     * Геттер идентификатора
-     */
-    public static int getId() {
-        return id;
-    }
-
-    /**
-     * Инкремент идентификатора
-     */
-    public static void incrementId() {
-        Utility.id++;
     }
 }

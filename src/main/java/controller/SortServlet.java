@@ -1,6 +1,7 @@
 package controller;
 
-import model.BDOperations;
+import model.TabDAO;
+import model.TabEntity;
 import model.Utility;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 
 public class SortServlet extends HttpServlet {
-
+    private static int id;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,10 +34,12 @@ public class SortServlet extends HttpServlet {
                     arrayInt[i] = Integer.parseInt(arrayStr[i]);
                 }
 
-                Utility.incrementId();
-                BDOperations.addToBase(Utility.getId(), "sort", mass.replaceAll(" ", ", "),
+                id++;
+                TabEntity tabEntity = new TabEntity(id, "sort", mass.replaceAll(" ", ", "),
                         Utility.arrayToString(Utility.sortArray(arrayInt)));
-                resp.sendRedirect(req.getContextPath() + "/Result?id=" + Utility.getId());
+                TabDAO.addToBase(tabEntity);
+
+                resp.sendRedirect(req.getContextPath() + "/Result?id=" + id);
             } catch (Exception e) {
                 req.setAttribute("error", "NumberFormatException");
                 req.setAttribute("mass", mass);
@@ -47,10 +50,11 @@ public class SortServlet extends HttpServlet {
         if (action.equals("random")) {
             int[] arrayInt = Utility.newRandomArray(20, 100);
 
-            Utility.incrementId();
-            BDOperations.addToBase(Utility.getId(), "random", Utility.arrayToString(arrayInt),
+            id++;
+            TabEntity tabEntity = new TabEntity(id, "random", Utility.arrayToString(arrayInt),
                     Utility.arrayToString(Utility.sortArray(arrayInt)));
-            resp.sendRedirect(req.getContextPath() + "/Result?id=" + Utility.getId());
+            TabDAO.addToBase(tabEntity);
+            resp.sendRedirect(req.getContextPath() + "/Result?id=" + id);
         }
     }
 }
